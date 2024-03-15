@@ -41,3 +41,20 @@ function Son(){
 Son.prototype = new Parent()
 Son.prototype.constructor = Son
 // 缺点：调用了两次Parent构造函数
+
+
+// 寄生组合继承------------------
+function Parent(){
+  this.name = 'parent'
+  this.play = [1,2,3]
+}
+Parent.prototype.getName = function(){
+  return this.name
+}
+
+function Son(){
+  Parent.call(this)
+  this.type = 'son'
+}
+Son.prototype = Object.create(Parent.prototype)
+Son.prototype.constructor = Son
