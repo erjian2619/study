@@ -2,9 +2,9 @@
 .DS_Store
 
 # NPM
-node_modules
+**/node_modules/
 npm-*
-package-lock.json
+**/package-lock.json
 
 # IDE
 .idea/
