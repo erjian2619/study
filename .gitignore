@@ -1,0 +1,17 @@
+# Mac OS
+.DS_Store
+
+# NPM
+node_modules
+npm-*
+package-lock.json
+
+# IDE
+.idea/
+.vscode/
+
+test/
+
+# output目录
+lib
+dist/
