@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>路由</title>
+</head>
+<body>
+<div>
+  <a href="#/">第一个</a>
+  <a href="#/two">第二页</a>
+  <a href="#/three">第三个</a>
+</div>
+<div id="content"></div>
+</body>
+<script>
+  class HashRouter {
+    constructor() {
+      this.routes={}
+      this.update = this.update.bind(this)
+      window.addEventListener('load', this.update)
+      window.addEventListener('hashchange', this.update)
+    }
+  
+    add(path, cb){
+      this.routes[path] = cb
+    }
+  
+    update(){
+      const path = `${window.location.hash}`
+      this.routes[path]()
+    }
+  }
+
+  const router = new HashRouter();
+  router.add('#/', () => changeContent('首页'));
+  router.add('#/two', () => changeContent('er'));
+  router.add('#/three', () => changeContent('第三个'));
+
+  function changeContent(content) {
+    document.getElementById('content').innerHTML = content
+  }
+</script>
+</html>
