@@ -1,0 +1,3 @@
+paceages:
+- 'packages/*'
+- 'apps/*'

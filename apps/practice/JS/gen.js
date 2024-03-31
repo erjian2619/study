@@ -31,7 +31,9 @@ function* fib(){
   }
 }
 
+let count = 0;
 for (let value of fib()) {
-  if (value > 100) break;
+  if (count > 8) break;
+  count++
   console.log(value);
 }

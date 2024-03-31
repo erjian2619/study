@@ -16,7 +16,10 @@ function connect(mapStateToProps, mapDispatchToProps){
             ...store.getState()
           }))
         })
-      },[WrapperComponent])
+        return () => {
+          store.unSubscribe(setState)
+        }
+      },[])
 
       return <WrapperComponent {...props} {...state} />
     }
@@ -29,6 +32,13 @@ function createSore(reducer, initState={}){
 
   function subscribe(listener){
     listeners.push(listener)
+  }
+
+  function unSubscribe(listener){
+    const index = listeners.indexOf(listener)
+    if(index > -1){
+      listeners.splice(index, 1)
+    }
   }
 
   function dispatch(value, actions){
@@ -66,4 +76,9 @@ export default function ReduxProvider(props){
   </ReduxContext.Provider>
 }
 
+
+export {
+  connect,
+  createSore
+}
 

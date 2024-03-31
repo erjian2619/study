@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>error</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function getError(){
+    const search = location.search.slice(1)
+    const searchObj = {}
+    if(search){
+      search.split('&').forEach(item => {
+        const [key, value] = item.split('=')
+        searchObj[key] = value
+      })
+    }
+    return searchObj
+  }
+  if( 'error' in getError()){
+    console.log(decodeURI(getError().error));
+  }
+</script>
+</html>

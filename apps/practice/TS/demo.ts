@@ -6,8 +6,8 @@ tsFuncoin('zs')
 
 enum Store {
   YB,
-  HH,
-  LH,
+  HH = '123',
+  LH = 1,
   FEN,
   WM
 }
@@ -18,3 +18,5 @@ const value1: unknown = unknownValue
 // eror: const value2: boolean = unknownValue
 
 // Object(包含原始类型) | object(object本身) | {}(没有成员的的对象)
+
+Store[2]
